@@ -124,6 +124,7 @@ wp_nonce_field( 'tribe-aggregator-save-import', 'tribe_aggregator_nonce' );
 		if ( 'edit' === $aggregator_action ) {
 			$this->template( 'origins/' . $record->meta['origin'], array( 'record' => $record, 'aggregator_action' => $aggregator_action ) );
 		} else {
+			$this->template( 'origins/limit', array( 'record' => $record, 'aggregator_action' => $aggregator_action ) );
 			$this->template( 'origins/csv', array( 'record' => $record, 'aggregator_action' => $aggregator_action ) );
 			$this->template( 'origins/ics', array( 'record' => $record, 'aggregator_action' => $aggregator_action ) );
 			$this->template( 'origins/ical', array( 'record' => $record, 'aggregator_action' => $aggregator_action ) );
@@ -148,6 +149,7 @@ $csv_help = esc_html__( 'Select the Event Field that best matches your CSV file 
 $scheduled_save_help = esc_html__( 'When you save this scheduled import, the events above will begin importing.', 'the-events-calendar' );
 ?>
 <div class="tribe-ea-table-container tribe-preview-container">
+	<div class="tribe-fetch-warning-message"></div>
 	<div class="tribe-fetch-error-message"></div>
 	<div class="spinner-container">
 		<span class="spinner tribe-ea-active"></span>

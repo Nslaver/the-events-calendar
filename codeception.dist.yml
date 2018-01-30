@@ -10,6 +10,9 @@ settings:
     memory_limit: 1024M
 api:
     ea_license: YOUR_EA_LICENSE
+params:
+  # read dynamic configuration parameters from the .env file
+  - .env
 extensions:
     commands:
         - 'Codeception\Command\GenerateWPUnit'
@@ -21,3 +24,4 @@ extensions:
         - 'Codeception\Command\GenerateWPXMLRPC'
         - 'Codeception\Command\DbSnapshot'
         - 'tad\Codeception\Command\SearchReplace'
+
